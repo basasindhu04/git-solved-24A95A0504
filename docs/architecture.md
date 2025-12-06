@@ -1,31 +1,17 @@
 # System Architecture
 
-## Overview
-DevOps Simulator follows a microservices architecture designed for high availability and scalability.
+The system follows a modular architecture designed for scalability and maintainability.  
+It includes components for configuration management, deployment automation, and monitoring.
 
-## Components
+## Core Components (from main)
+- Configuration Module  
+- Deployment Module  
+- Monitoring Module  
 
-### 1. Application Server
-- **Technology**: Node.js + Express
-- **Port**: 8080
-- **Scaling**: Horizontal auto-scaling enabled
+## Additional Notes (from dev)
+- Added improved documentation for development usage  
+- Includes optional debug logging features  
+- Supports environment-based configuration overrides  
 
-### 2. Database Layer
-- **Database**: PostgreSQL 14
-- **Configuration**: Master-slave replication
-- **Backup**: Daily automated backups
-
-### 3. Monitoring System
-- **Tool**: Prometheus + Grafana
-- **Metrics**: CPU, Memory, Disk, Network
-- **Alerts**: Email notifications for critical issues
-
-## Deployment Strategy
-- **Method**: Rolling updates
-- **Zero-downtime**: Yes
-- **Rollback**: Automated on failure
-
-## Security
-- SSL/TLS encryption
-- Database connection encryption
-- Regular security audits
+## Summary
+This architecture supports both production and development workflows by allowing flexible configuration and modular extensions.

@@ -1,36 +1,32 @@
-/**
- * System Monitoring Script - Production
- * Monitors application health and performance
- */
+// Monitoring Script - Combined Production + Development Features
 
-const monitorConfig = {
-  interval: 60000, // 1 minute
-  alertThreshold: 80,
-  metricsEndpoint: 'http://localhost:8080/metrics'
-};
+function monitorService() {
+  console.log("Monitoring service...");
 
-console.log('=================================');
-console.log('DevOps Simulator - Monitor v1.0');
-console.log('=================================');
+  // Core monitoring logic (from main)
+  const status = checkSystemStatus();
+  console.log("System status:", status);
 
-function checkSystemHealth() {
-  console.log(`[${new Date().toISOString()}] Checking system health...`);
-  
-  // Check CPU usage
-  console.log('✓ CPU usage: Normal');
-  
-  // Check Memory
-  console.log('✓ Memory usage: Normal');
-  
-  // Check Disk
-  console.log('✓ Disk space: Adequate');
-  
-  console.log('System Status: HEALTHY');
+  // Dev enhancements (from dev)
+  if (process.env.NODE_ENV === "development") {
+    console.log("[DEV] Detailed debug logs enabled.");
+    console.log("[DEV] CPU Load:", getCpuLoad());
+    console.log("[DEV] Memory Usage:", getMemoryUsage());
+  }
+}
+
+function checkSystemStatus() {
+  return "OK";
+}
+
+// Development helper functions
+function getCpuLoad() {
+  return Math.random().toFixed(2); // Simulated load
+}
+
+function getMemoryUsage() {
+  return (Math.random() * 100).toFixed(2) + "%";
 }
 
 // Start monitoring
-console.log(`Monitoring every ${monitorConfig.interval}ms`);
-setInterval(checkSystemHealth, monitorConfig.interval);
-
-// Run first check immediately
-checkSystemHealth();
+setInterval(monitorService, 5000);

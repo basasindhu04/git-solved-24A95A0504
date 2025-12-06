@@ -1,36 +1,34 @@
 #!/bin/bash
-# Production Deployment Script
-# Version: 1.0.0
 
-set -e
+# Deployment Script for Both Production and Development
 
-echo "====================================="
-echo "DevOps Simulator - Production Deploy"
-echo "====================================="
+ENVIRONMENT=$1
 
-# Configuration
-DEPLOY_ENV="production"
-DEPLOY_REGION="us-east-1"
-APP_PORT=8080
-
-echo "Environment: $DEPLOY_ENV"
-echo "Region: $DEPLOY_REGION"
-echo "Port: $APP_PORT"
-
-# Pre-deployment checks
-echo "Running pre-deployment checks..."
-if [ ! -f "config/app-config.yaml" ]; then
-    echo "Error: Configuration file not found!"
-    exit 1
+if [ -z "$ENVIRONMENT" ]; then
+  echo "Usage: ./deploy.sh [production|development]"
+  exit 1
 fi
 
-# Deploy application
-echo "Starting deployment..."
-echo "Pulling latest Docker images..."
-# docker pull devops-simulator:latest
+echo "Starting deployment for environment: $ENVIRONMENT"
 
-echo "Rolling update strategy initiated..."
-# kubectl rolling-update devops-simulator
+case $ENVIRONMENT in
 
-echo "Deployment completed successfully!"
-echo "Application available at: https://app.example.com"
+  production)
+    echo "Running production deployment..."
+    # Production deployment steps
+    npm install --production
+    echo "Deployment to PRODUCTION completed."
+    ;;
+
+  development)
+    echo "Running development deployment..."
+    # Development deployment steps
+    npm install
+    echo "Deployment to DEVELOPMENT completed."
+    ;;
+
+  *)
+    echo "Invalid environment. Use: production OR development"
+    exit 1
+    ;;
+esac

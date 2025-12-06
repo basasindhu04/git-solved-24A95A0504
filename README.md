@@ -1,26 +1,12 @@
-# DevOps Simulator
+# Git Mastery Challenge - Solution
 
-A comprehensive CI/CD configuration management tool for enterprise deployments.
+This repository contains the completed Git Mastery Challenge project.
 
-## Project Status
-**Version**: 1.0.0  
-**Environment**: Production  
-**Maintainer**: DevOps Team
+## Project Overview (from main)
+This project teaches core and advanced Git concepts including branching, merging, conflict resolution, and version control workflows.  
+It includes practical scenarios such as merging branches, resolving conflicts, using tags, stashing, rebasing, cherry-picking, and more.
 
-## Features
-- Automated deployment scripts
-- Real-time monitoring
-- Configuration management
-- Backup and recovery system
-
-## Quick Start
-1. Clone the repository
-2. Configure environment variables
-3. Run deployment script
-4. Monitor system health
-
-## Documentation
-See `/docs` folder for detailed documentation.
-
-## License
-MIT License
+## Development Setup (from dev)
+To install dependencies:
+```sh
+npm install
