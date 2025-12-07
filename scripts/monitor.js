@@ -43,7 +43,7 @@ setInterval(monitorService, 5000);
 // ----------------------------------------------------------
 // 2. OPTIONAL AI-ENHANCED MONITORING (FROM conflict-simulator)
 // ----------------------------------------------------------
-// ⚠️ This part ONLY runs if AI_MONITOR=true is set in environment
+// ⚠️ Runs ONLY if AI_MONITOR=true
 // Example:
 //    AI_MONITOR=true node monitor.js
 // ----------------------------------------------------------
@@ -66,7 +66,7 @@ if (process.env.AI_MONITOR === "true") {
   };
 
 
-  // Simulated ML prediction
+  // AI prediction simulation
   function predictFutureMetrics() {
     console.log('\n🤖 AI Prediction Engine:');
     console.log('Analyzing historical patterns...');
@@ -84,13 +84,14 @@ if (process.env.AI_MONITOR === "true") {
     console.log(`   Traffic: ${prediction.traffic.toFixed(0)} req/s`);
 
     if (prediction.cpu > monitorConfig.alertThreshold) {
-      console.log('⚠️  PREDICTIVE ALERT: High CPU expected - Pre-scaling initiated');
+      console.log('⚠️ PREDICTIVE ALERT: High CPU expected — Pre-scaling initiated');
     }
 
     return prediction;
   }
 
 
+  // System health monitoring
   function checkSystemHealth() {
     const timestamp = new Date().toISOString();
     console.log(`\n[${timestamp}] === COMPREHENSIVE HEALTH CHECK ===`);
@@ -124,10 +125,10 @@ if (process.env.AI_MONITOR === "true") {
       predictFutureMetrics();
     }
 
-    // Overall status
+    // Overall status check
     const maxUsage = Math.max(cpuUsage, memUsage, diskUsage);
     if (maxUsage > monitorConfig.alertThreshold) {
-      console.log('\n🔴 System Status: WARNING - High resource usage');
+      console.log('\n🔴 System Status: WARNING — High resource usage');
       console.log('   AI auto-scaling triggered');
     } else {
       console.log('\n🟢 System Status: OPTIMAL');
@@ -136,7 +137,8 @@ if (process.env.AI_MONITOR === "true") {
     console.log("================================================");
   }
 
-  // Load AI model
+
+  // Load AI model (simulated)
   if (monitorConfig.aiEnabled) {
     console.log('Loading AI models...');
     console.log(`✓ Model loaded: ${monitorConfig.mlModelPath}`);
@@ -148,11 +150,11 @@ if (process.env.AI_MONITOR === "true") {
   console.log(`Cloud providers: ${monitorConfig.cloudProviders.join(', ')}`);
   console.log(`AI prediction window: ${monitorConfig.predictiveWindow}s\n`);
 
-  // Start experimental AI monitoring
+  // Start AI monitoring
   setInterval(checkSystemHealth, monitorConfig.interval);
   checkSystemHealth();
 
-  // Background AI training
+  // Background AI training simulation
   setInterval(() => {
     console.log('\n🎓 AI Model: Retraining on new data...');
     console.log('   Training accuracy: 94.7%');
