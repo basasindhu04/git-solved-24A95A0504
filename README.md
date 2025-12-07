@@ -10,4 +10,3 @@ It includes practical scenarios such as merging branches, resolving conflicts, u
 To install dependencies:
 ```sh
 npm install
-
